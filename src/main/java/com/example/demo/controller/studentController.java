@@ -40,6 +40,10 @@ public class studentController{
     }
     @DeleteMapping("/del/{id}")
     public String deleteStudent(@PathVariable Long id){
-        Optional<
+        Optional<Student>student=studentService.getOneStudent(id);
+        if(student.isPresent()){
+            studentService.deleteStudent(id);
+            return "Deleted success";
+        }
     }
 }
