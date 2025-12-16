@@ -13,3 +13,20 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.service.StudentService;
 @CrossOrigin(origins = "*")
 @RestController
+public class studentController{
+    @Autowired
+    StudentService studentService;
+    @PostMapping("PostStudent")
+    public Student postStd(@RequestBody Student st){
+        return studentService.insertStudent(st);
+    }
+    @GetMapping("/getAll")
+    public List<Student> getAll(){
+        return studentService.getAllStudents();
+    }
+    @GetMapping("/get/{id}")
+    public Optional<Student> get(@PathVariable Long id){
+        return studentService.getOneStudent(id);
+    }
+    @
+}
