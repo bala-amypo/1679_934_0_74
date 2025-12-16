@@ -28,5 +28,18 @@ public class studentController{
     public Optional<Student> get(@PathVariable Long id){
         return studentService.getOneStudent(id);
     }
-    @
+    @PutMapping("/update/{id}")
+    public String update(@PathVariable Long id,@RequestBody Student newStudent){
+        Optional<Student>student=studentService.getOneStudent(id);
+        if(student.isPresent()){
+            newStudent.setId(id);
+            studentService.insertStudent(newStudent);
+            return "Updated Success";
+        }
+        return "Id not found";
+    }
+    @DeleteMapping("/del/{id}")
+    public String deleteStudent(@PathVariable Long id){
+        Optional<
+    }
 }
