@@ -16,7 +16,7 @@ import com.example.demo.service.StudentService;
 
 @CrossOrigin(origins = "*")
 @RestController
-public class StudentController {`   
+public class StudentController {   
     @Autowired
     StudentService studentService;
     @PostMapping("/PostStudent")
