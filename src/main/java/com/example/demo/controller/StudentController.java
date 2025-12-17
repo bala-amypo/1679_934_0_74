@@ -1,5 +1,4 @@
-package com.example.demo.controller;
-                        
+package com.example.demo.controller;              
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,32 +16,24 @@ import com.example.demo.service.StudentService;
 
 @CrossOrigin(origins = "*")
 @RestController
-public class StudentController {
-
+public class StudentController {`   
     @Autowired
     StudentService studentService;
-
     @PostMapping("/PostStudent")
     public Student post(@RequestBody Student st) {
         return studentService.insertStudent(st);
     }
-
     @GetMapping("/getAll")
     public List<Student> getAll() {
         return studentService.getAllStudents();
     }
-
     @GetMapping("/get/{id}")
     public Optional<Student> get(@PathVariable Long id) {
         return studentService.getOneStudent(id);
     }
-
     @PutMapping("/update/{id}")
-    public String update(@PathVariable Long id,
-                         @RequestBody Student newStudent) {
-
+    public String update(@PathVariable Long id,@RequestBody Student newStudent) {
         Optional<Student> student = studentService.getOneStudent(id);
-
         if (student.isPresent()) {
             newStudent.setId(id);
             studentService.insertStudent(newStudent);
@@ -50,11 +41,10 @@ public class StudentController {
         }
         return "Id not found";
     }
-
     @DeleteMapping("/del/{id}")
     public String deleteStudent(@PathVariable Long id) {
     Optional<Student> student = studentService.getOneStudent(id);
-        if (student.isPresent()) {
+        if (student.isPresent()){
             studentService.deleteStudent(id);
             return "Deleted Success";
         }
