@@ -8,5 +8,11 @@ import com.example.demo.repository.StudentRepo;
 import com.example.demo.service.StudentService;
 
 public class StudentServiceImpl implements StudentService{
-
+    @Autowired
+    StudentRepo stRepo;
+    @Override
+    public Student insertStudent(Student st){
+        
+        return st;
+    }
 }
