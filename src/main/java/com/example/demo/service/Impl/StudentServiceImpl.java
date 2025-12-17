@@ -12,7 +12,11 @@ public class StudentServiceImpl implements StudentService{
     StudentRepo stRepo;
     @Override
     public Student insertStudent(Student st){
-        
-        return st;
+       return stRepo.save(st);
     }
+    @Override
+    public List<Student>getAllStudent(){
+        return stRepo.findAll();
+    }
+    
 }
