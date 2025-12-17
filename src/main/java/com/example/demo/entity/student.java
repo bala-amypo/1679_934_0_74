@@ -1,15 +1,13 @@
 package com.example.demo.entity;
-
 import java.time.LocalDate;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
 @Entity
 public class Student {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String email;
@@ -46,13 +44,6 @@ public class Student {
         this.cgpa = cgpa;
     }
     public Student() {
-    }
-    public Student(Long id, String name, String email, LocalDate dob, float cgpa) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.dob = dob;
-        this.cgpa = cgpa;
     }
     
 }
